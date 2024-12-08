@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2024.12.08 07:48:55.731,=C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\Unit8.pas</Transaction>
-    <Transaction>2024.12.08 07:49:30.551,C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\DelphiProgram.dproj=C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\Project7.dproj</Transaction>
-    <Transaction>2024.12.08 07:50:11.729,C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\Main.pas=C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\Unit8.pas</Transaction>
-    <Transaction>2024.12.08 07:50:11.729,C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\Main.dfm=C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\Unit8.dfm</Transaction>
-    <Transaction>2024.12.08 07:52:00.367,D:\distr\DelphiProjects\StudentProjectLabN7\Main.dfm=C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\Main.dfm</Transaction>
-    <Transaction>2024.12.08 07:52:00.367,D:\distr\DelphiProjects\StudentProjectLabN7\Main.pas=C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\Main.pas</Transaction>
-    <Transaction>2024.12.08 07:52:02.172,D:\distr\DelphiProjects\StudentProjectLabN7\DelphiProgram.dproj=C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\DelphiProgram.dproj</Transaction>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.367,C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\Main.pas=D:\distr\DelphiProjects\StudentProjectLabN7\Main.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.551,C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\Project7.dproj=C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\DelphiProgram.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.729,C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\Unit8.dfm=C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\Main.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.172,C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\DelphiProgram.dproj=D:\distr\DelphiProjects\StudentProjectLabN7\DelphiProgram.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.731,=C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\Unit8.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.729,C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\Unit8.pas=C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\Main.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.367,C:\Users\HMC-DIAG\Documents\RAD Studio\Projects\Main.dfm=D:\distr\DelphiProjects\StudentProjectLabN7\Main.dfm</Transaction>
   </Transactions>
 </BorlandProject>

@@ -31,6 +31,7 @@ type
         procedure SaveMemoToFile;
         procedure CryptMemo;
         procedure DecryptMemo;
+        function reverse_string_encrypt(str_data: string): string;
     end;
 
 var
@@ -78,45 +79,29 @@ end;
 procedure TForm8.CryptMemo;
 var
     str_list: TstringList;
-    i: integer;
     str_text: string; // строка
     small_str: string; // строка из 4 символов
     encrypt_str: string; // криптованная строка из 4 символов
-    data_list: array of string;
-    size_mod: integer;
+    end_str: string; // хвост строки
 begin
     str_list := TstringList.Create;
     // идём построчно
     for str_text in Memo1.Lines do
     begin
-        // разбиваем строку по 4 символа, создаём массив строк
-        setlength(data_list, 0);
-        for i := 0 to (length(str_text) div 4) - 1 do
+        // разбиваем строку по 4 символа
+        small_str := copy(str_text, 1, length(str_text) -
+          (length(str_text) mod 4));
+        end_str := copy(str_text, length(small_str) + 1,
+          length(str_text) mod 4);
+        encrypt_str := reverse_string_encrypt(small_str);
+        if length(end_str) > 0 then
         begin
-            small_str := Copy(str_text, i * 4 + 1, 4);
-            // переворачиваем подстроку
-            small_str := ReverseString(small_str);
-            setlength(data_list, length(data_list) + 1);
-            data_list[length(data_list) - 1] := small_str;
-        end;
-        // дополняем массив строк остатком
-        size_mod := length(str_text) mod 4;
-        if size_mod > 0 then
-        begin
-            encrypt_str := Copy(str_text, length(str_text) - size_mod + 1,
-              size_mod);
-            for i := 0 to length(data_list) - 1 do
-                encrypt_str := encrypt_str + data_list[i];
+            encrypt_str := end_str + encrypt_str;
         end
         else
         begin
-            encrypt_str := '';
-            if length(data_list) > 0 then
-            begin
-                encrypt_str := data_list[length(data_list) - 1];
-                for i := 0 to length(data_list) - 2 do
-                    encrypt_str := encrypt_str + data_list[i];
-            end;
+            encrypt_str := copy(encrypt_str, length(encrypt_str) - 3, 4) +
+              copy(encrypt_str, 1, length(encrypt_str) - 4);
         end;
 
         str_list.Add(encrypt_str);
@@ -126,7 +111,48 @@ begin
 end;
 
 procedure TForm8.DecryptMemo;
+var
+    str_list: TstringList;
+    str_text: string; // строка
+    encrypt_str: string; // криптованная строка из 4 символов
+    end_str: string; // хвост строки
 begin
+    str_list := TstringList.Create;
+    // идём построчно
+    for str_text in Memo1.Lines do
+    begin
+        // если строка не кратна 4, то выравниваем по концу
+        if (length(str_text) mod 4) > 0 then
+        begin
+            // строка не кратна 4, берем необхомую длину символов и перемещаем
+            end_str := copy(str_text, 1, length(str_text) mod 4);
+            encrypt_str := copy(str_text, (length(str_text) mod 4) + 1,
+              length(str_text) - length(str_text) mod 4);
+            encrypt_str := reverse_string_encrypt(encrypt_str) + end_str;
+        end
+        else
+        begin
+            // строка кратна 4, сперва восстанавливаем последовательность
+            end_str := copy(str_text, 1, 4);
+            encrypt_str := copy(str_text, 5, length(str_text) - 4) + end_str;
+            encrypt_str := reverse_string_encrypt(encrypt_str);
+        end;
+
+        str_list.Add(encrypt_str);
+    end;
+    Memo1.Lines := str_list;
+    str_list.Free;
+end;
+
+function TForm8.reverse_string_encrypt(str_data: string): string;
+var
+    i: integer;
+begin
+    result := '';
+    for i := 0 to length(str_data) div 4 do
+    begin
+        result := result + ReverseString(copy(str_data, i * 4 + 1, 4));
+    end;
 
 end;
 
